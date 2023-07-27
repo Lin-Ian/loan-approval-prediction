@@ -2,7 +2,7 @@ import pandas as pd
 from sklearn.model_selection import train_test_split
 from sklearn.ensemble import RandomForestClassifier
 from sklearn import metrics
-from time import time_ns
+from time import time
 
 
 def etl_pipeline():
@@ -70,7 +70,7 @@ def test(rfc_model, x_test, y_test):
 
 if __name__ == '__main__':
     # Start time
-    start_time = time_ns()
+    start_time = time()
 
     # Clean data
     data = etl_pipeline()
@@ -80,9 +80,9 @@ if __name__ == '__main__':
     test(rf_model, test_features, test_labels)
 
     # End time
-    end_time = time_ns()
+    end_time = time()
 
     # Total time
     time_spent = end_time - start_time
 
-    print(f'Time Spent: {time_spent}s')
+    print(f'Time Spent: {time_spent:.3f}s')
